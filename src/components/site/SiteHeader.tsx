@@ -35,7 +35,9 @@ export function SiteHeader() {
           {nav.map((item) => {
             const active =
               pathname === item.href ||
-              (item.href === "/issues" && pathname.startsWith("/issues/"));
+              (item.href === "/issues" && pathname.startsWith("/issues/")) ||
+              (item.href === "/articles" &&
+                (pathname.startsWith("/articles/") || pathname.startsWith("/topics")));
             const href =
               home && item.href === "/newsletter"
                 ? "#newsletter"

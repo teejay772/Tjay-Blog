@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { site, publicationUrl, FEED_PATH } from "@/lib/site";
 import "./globals.css";
 import "./mobile.css";
+import "./reader.css";
 
 const geistSans = localFont({
   src: "../../public/fonts/ibm-plex-sans-latin.woff2",

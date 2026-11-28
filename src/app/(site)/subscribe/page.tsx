@@ -26,7 +26,6 @@ export default function SubscribePage() {
             journal.
           </p>
           <ul className="mt-8 space-y-3 text-sm leading-6 text-muted-foreground">
-            <li>One address. No ads.</li>
             <li>No paywall. Free article and journal downloads.</li>
             <li>Unsubscribe anytime.</li>
           </ul>

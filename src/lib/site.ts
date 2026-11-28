@@ -25,9 +25,11 @@ export const FEED_PATH = "/feed.xml";
 
 export const nav = [
   { href: "/current-issue", label: "Current issue" },
+  { href: "/articles", label: "Articles" },
   { href: "/issues", label: "Archive" },
   { href: "/about", label: "About" },
   { href: "/newsletter", label: "Newsletter" },
+  { href: "/search", label: "Search" },
 ];
 
 export function publicationUrl() {

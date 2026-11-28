@@ -42,7 +42,7 @@ export function ArticleAtAGlance({
           <div key={index} style={{ display: "block" }}>
             <dt
               style={{
-                fontSize: "15px",
+                fontSize: "16px",
                 fontWeight: 600,
                 lineHeight: 1.55,
                 color: "#0E1C3B",
@@ -53,7 +53,7 @@ export function ArticleAtAGlance({
             <dd
               style={{
                 marginTop: "4px",
-                fontSize: "15px",
+                fontSize: "16px",
                 lineHeight: 1.55,
                 color: "#4A5163",
               }}

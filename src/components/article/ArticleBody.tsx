@@ -62,6 +62,10 @@ const components: Components = {
             {title || (!alt ? alt : null)}
           </figcaption>
         ) : null}
+        {/* Shown on phones only (reader.css); FigureViewer handles the click. */}
+        <button type="button" className="article-figure-open" data-figure-open>
+          View full screen ›
+        </button>
       </figure>
     ) : null,
   ol: ({ children }) => <ol className="article-list list-decimal">{children}</ol>,

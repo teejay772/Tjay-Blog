@@ -1,0 +1,100 @@
+/* Reader-experience fixes (November 2026 review). Loaded after globals.css and mobile.css. */
+
+/* ---------- Articles index: search, topics, newest-first list ---------- */
+.articles-search { margin-top: 32px; max-width: 640px; }
+.articles-search label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 500; color: var(--muted-foreground); }
+.articles-search > div { display: flex; flex-wrap: wrap; gap: 12px; }
+.articles-search input { flex: 1 1 260px; min-width: 0; height: 48px; padding: 0 16px; border: 1px solid var(--navy); border-radius: 0; background: white; font-size: 16px; color: var(--ink, #141a2e); }
+.articles-search button { height: 48px; padding: 0 24px; border: 1px solid var(--navy); background: transparent; font-size: 15px; font-weight: 600; letter-spacing: .04em; color: var(--navy); cursor: pointer; }
+.articles-search button:hover { background: var(--navy); color: white; }
+.articles-topics { display: flex; flex-wrap: wrap; align-items: center; gap: 0 24px; margin-top: 20px; font-size: 14px; }
+.articles-topics span { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); }
+.articles-topics a { display: inline-flex; align-items: center; min-height: 44px; color: var(--navy); }
+.articles-rule { height: 8px; margin-top: 20px; background: var(--navy); }
+.articles-list { margin: 0; padding: 0; list-style: none; }
+.articles-list > li { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px 40px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+.articles-list-meta { flex: 0 0 150px; display: flex; flex-direction: column; font-size: 13px; line-height: 1.6; }
+.articles-list-meta time { font-weight: 600; color: var(--ink, #141a2e); }
+.articles-list-meta span { color: var(--brand); }
+.articles-list-body { flex: 999 1 420px; min-width: 0; }
+.articles-list-body h2 { margin-top: 8px; font-family: var(--font-serif); font-size: 26px; font-weight: 500; line-height: 1.25; }
+.articles-list-body h2 a { color: var(--navy); text-decoration: none; }
+.articles-list-body h2 a:hover { color: var(--brand); }
+.articles-list-body > p:not(.journal-kicker) { max-width: 640px; margin-top: 8px; font-size: 16px; line-height: 1.55; color: var(--muted-foreground); }
+.articles-list-body .articles-list-footnote { margin-top: 10px; font-size: 13px; }
+.articles-list-read { flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 600; letter-spacing: .04em; color: var(--navy); text-decoration: none; }
+.articles-list-read:hover { color: var(--brand); }
+@media (max-width: 767px) {
+  .articles-list > li { gap: 6px; padding: 24px 0; }
+  .articles-list-meta { flex-basis: 100%; flex-direction: row; gap: 10px; }
+  .articles-list-meta span::before { content: "· "; color: var(--muted-foreground); }
+  .articles-list-body h2 { font-size: 23px; }
+}
+
+/* ---------- Article: "In this article" ---------- */
+/* Phones and tablets: a boxed, collapsible list above At a glance. */
+.article-mobile-contents { margin: 0 0 24px; border: 1px solid var(--border); border-top: 4px solid var(--navy); background: white; }
+.article-mobile-contents summary { list-style: none; display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 16px; cursor: pointer; }
+.article-mobile-contents summary::-webkit-details-marker { display: none; }
+.article-mobile-contents-label { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--brand); }
+.article-mobile-contents summary::after { content: "Show" !important; font-size: 14px !important; font-weight: 600 !important; letter-spacing: .04em; color: var(--navy) !important; }
+.article-mobile-contents[open] summary::after { content: "Hide" !important; }
+.article-mobile-contents nav { padding: 0 16px 8px; }
+.article-mobile-contents nav ol { margin-top: 0 !important; }
+.article-mobile-contents nav a { display: flex !important; align-items: center; min-height: 48px; padding: 6px 0 !important; font-family: var(--font-serif); font-size: 17px !important; line-height: 1.35 !important; }
+
+/* Desktop: the list stays in view while reading, with the current section marked. */
+@media (min-width: 981px) {
+  .journal-article-aside { align-self: stretch; }
+  .article-aside-sticky { position: sticky; top: 96px; max-height: calc(100vh - 120px); overflow-y: auto; scrollbar-width: thin; }
+}
+.article-desktop-contents a[aria-current="location"] { margin-inline: -24px; padding-inline: 24px; background: var(--background); font-weight: 600; }
+
+/* ---------- Article: figures open full screen on phones ---------- */
+.article-figure-open { display: none; }
+@media (max-width: 767px) {
+  .article-figure-open { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; margin-top: 12px; border: 1px solid var(--navy); background: transparent; font-family: var(--font-sans); font-size: 15px; font-weight: 600; letter-spacing: .04em; color: var(--navy); cursor: pointer; }
+}
+.figure-viewer { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; padding: 0; border: 0; background: #0b1630; color: white; font-family: var(--font-sans); }
+.figure-viewer[open] { display: flex; flex-direction: column; }
+.figure-viewer::backdrop { background: #0b1630; }
+.figure-viewer-bar { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; min-height: 56px; padding: 0 8px 0 16px; font-size: 12px; font-weight: 600; letter-spacing: .12em; color: #c9d3e3; }
+.figure-viewer button { min-height: 44px; padding: 0 14px; border: 1px solid #7c8aa5; background: transparent; font-size: 14px; font-weight: 600; letter-spacing: .04em; color: white; cursor: pointer; }
+.figure-viewer button:disabled { opacity: .35; cursor: default; }
+.figure-viewer button:focus-visible { outline: 2px solid #7fc4c9; outline-offset: 2px; }
+.figure-viewer-stage { position: relative; flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.figure-viewer-stage img { display: block; max-width: calc(100vw - 16px); max-height: 100%; background: white; }
+/* Phone held upright: turn the wide figure sideways so its long side runs along the screen's. */
+@media (orientation: portrait) {
+  .figure-viewer-stage img { max-width: none; max-height: none; width: calc(100dvh - 190px); height: auto; transform: rotate(90deg); }
+}
+.figure-viewer-hint { flex: 0 0 auto; padding: 10px 16px 4px; text-align: center; font-size: 13px; line-height: 1.6; color: #c9d3e3; }
+@media (orientation: landscape) { .figure-viewer-hint { display: none; } }
+.figure-viewer-steps { display: flex; flex: 0 0 auto; justify-content: space-between; padding: 0 8px 8px; }
+
+/* ---------- Article end: Read next, then subscribe, then comments ---------- */
+.article-read-next { margin-top: 56px; padding-top: 20px; border-top: 8px solid var(--navy); }
+.article-read-next h2 { font-family: var(--font-serif); font-size: 30px; font-weight: 500; line-height: 1.2; color: var(--navy); }
+.article-read-next ol { margin: 4px 0 0; padding: 0; list-style: none; }
+.article-read-next li { padding: 20px 0; border-bottom: 1px solid var(--border); }
+.article-read-next h3 { margin-top: 8px; font-family: var(--font-serif); font-size: 24px; font-weight: 500; line-height: 1.25; }
+.article-read-next h3 a { color: var(--navy); text-decoration: none; }
+.article-read-next h3 a:hover { color: var(--brand); }
+.article-read-next li > p:not(.journal-kicker) { margin-top: 8px; font-family: var(--font-sans); font-size: 16px; line-height: 1.55; color: var(--muted-foreground); }
+.article-read-next .article-read-next-meta { margin-top: 10px; font-size: 13px; }
+.article-read-next-all { display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px; font-family: var(--font-sans); font-size: 15px; font-weight: 600; letter-spacing: .04em; color: var(--navy); text-decoration: none; }
+
+/* The end-of-article subscribe band: phones and tablets, where the sidebar box sits at the very bottom. */
+.article-end-newsletter { display: none; }
+@media (max-width: 980px) {
+  .article-end-newsletter { display: block; margin: 40px -20px 0; padding: 40px 20px; background: var(--navy); color: white; }
+  .article-end-newsletter h2 { font-family: var(--font-serif); font-size: 30px; font-weight: 500; line-height: 1.15; color: white; }
+  .article-end-newsletter > p { margin: 12px 0 20px; font-family: var(--font-sans); font-size: 16px; line-height: 1.55; color: #c9d3e3; }
+  .article-end-newsletter label { color: #c9d3e3; }
+  .article-end-newsletter input { border-radius: 0; border-color: #7c8aa5; background: white; color: #141a2e; }
+  .article-end-newsletter button { border-radius: 0; background: #7fc4c9; color: var(--navy); }
+  .article-aside-newsletter { display: none; }
+}
+@media (min-width: 640px) and (max-width: 980px) {
+  .article-end-newsletter { margin-inline: -32px; padding-inline: 32px; }
+}
