@@ -47,7 +47,7 @@ export default async function ArchivePage() {
               <p>Vol. {issue.volume} | No. {issue.number}</p>
               <p className="text-xs text-[var(--muted-foreground)]">{[...issue.posts, ...(issue.upcomingArticles ?? [])].map(post => post.title).join(" · ")}</p>
               <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs font-semibold">
-                <Link href={issuePath(issue)}>View issue →</Link>
+                <Link href={issuePath(issue)} className="action-link">View issue ›</Link>
                 <a href={`${issuePath(issue)}/download`} download>↓ PDF</a>
               </div>
             </div>

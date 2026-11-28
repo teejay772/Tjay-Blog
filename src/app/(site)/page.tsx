@@ -72,7 +72,9 @@ export default async function HomePage() {
               <IssueContents issue={featuredIssue} compact />
 
               <div className="issue-home-actions">
-                <Link href={issuePath(featuredIssue)}>View the full issue ›</Link>
+                <Link href={issuePath(featuredIssue)} className="action-button">
+                  View the full issue ›
+                </Link>
               </div>
             </div>
           </section>

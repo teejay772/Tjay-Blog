@@ -68,7 +68,7 @@ export default async function IssuePage(props: Props) {
           <div className="issue-cover-links">
             <a href="#about-the-cover">About the cover &darr;</a>
             <a href={`/api/download/contents/${issue.id}`} download>Table of contents (PDF) &darr;</a>
-            {issue.posts.length > 0 && <a href={`${issuePath(issue)}/download`} download>Full issue (PDF) &darr;</a>}
+            {issue.posts.length > 0 && <a href={`${issuePath(issue)}/download`} download className="action-button">Full issue (PDF) &darr;</a>}
           </div>
         </div>
         <div>

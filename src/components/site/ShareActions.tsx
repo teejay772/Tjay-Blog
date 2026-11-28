@@ -31,7 +31,7 @@ export function ShareActions({ slug }: { slug: string }) {
     <div className="article-actions print:hidden" data-article-slug={slug}>
       <div className="flex flex-wrap gap-2">
         <PrintButton />
-        <Button type="button" size="sm" onClick={() => void share()}>
+        <Button type="button" size="sm" className="article-share" onClick={() => void share()}>
           Share
         </Button>
       </div>

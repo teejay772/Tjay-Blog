@@ -196,7 +196,7 @@ export function ArticleDiscussion({ articleId }: { articleId: string }) {
           <button
             type="submit"
             disabled={posting || !draftName.trim() || !draftBody.trim()}
-            className="min-h-11 rounded-lg bg-[#0E1C3B] px-5 text-sm font-semibold text-white transition hover:bg-[#17294E] disabled:cursor-not-allowed disabled:opacity-45"
+            className="min-h-11 rounded-none bg-[#BF3A1B] px-5 text-sm font-semibold text-white transition hover:bg-[#A3311A] disabled:cursor-not-allowed disabled:opacity-45"
           >
             {posting ? "Publishing…" : "Publish comment"}
           </button>

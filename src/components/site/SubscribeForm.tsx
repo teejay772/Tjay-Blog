@@ -77,14 +77,11 @@ export function SubscribeForm({
         <Button
           type="submit"
           disabled={pending}
-          className={compact ? "h-10 rounded-full px-4" : "h-11 rounded-full"}
+          className={`subscribe-submit ${compact ? "h-10 px-4" : "h-11"}`}
           style={
             inverse
               ? {
                   height: "46px",
-                  borderRadius: 0,
-                  background: "#7FC4C9",
-                  color: "#0E1C3B",
                   fontSize: "15px",
                   fontWeight: 600,
                 }

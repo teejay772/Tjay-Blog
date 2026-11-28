@@ -22,8 +22,8 @@
 .articles-list-body h2 a:hover { color: var(--brand); }
 .articles-list-body > p:not(.journal-kicker) { max-width: 640px; margin-top: 8px; font-size: 16px; line-height: 1.55; color: var(--muted-foreground); }
 .articles-list-body .articles-list-footnote { margin-top: 10px; font-size: 13px; }
-.articles-list-read { flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 600; letter-spacing: .04em; color: var(--navy); text-decoration: none; }
-.articles-list-read:hover { color: var(--brand); }
+.articles-list-read { flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 600; letter-spacing: .04em; color: var(--action); text-decoration: none; }
+.articles-list-read:hover { color: var(--action-hover); text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 767px) {
   .articles-list > li { gap: 6px; padding: 24px 0; }
   .articles-list-meta { flex-basis: 100%; flex-direction: row; gap: 10px; }
@@ -92,9 +92,36 @@
   .article-end-newsletter > p { margin: 12px 0 20px; font-family: var(--font-sans); font-size: 16px; line-height: 1.55; color: #c9d3e3; }
   .article-end-newsletter label { color: #c9d3e3; }
   .article-end-newsletter input { border-radius: 0; border-color: #7c8aa5; background: white; color: #141a2e; }
-  .article-end-newsletter button { border-radius: 0; background: #7fc4c9; color: var(--navy); }
   .article-aside-newsletter { display: none; }
 }
 @media (min-width: 640px) and (max-width: 980px) {
   .article-end-newsletter { margin-inline: -32px; padding-inline: 32px; }
 }
+
+/* ---------- Orange accent: for things the reader can act on ---------- */
+/* From the design system: buttons and onward links. Never headings, rules, body text or tags. */
+:root {
+  --action: #bf3a1b;        /* white on it 5.5:1; as text on the page 4.9:1 */
+  --action-hover: #a3311a;
+}
+.journal-site .subscribe-submit,
+.journal-site .article-newsletter .subscribe-submit {
+  border: 0;
+  border-radius: 0 !important;
+  background: var(--action) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.journal-site .subscribe-submit:hover:not(:disabled) { background: var(--action-hover) !important; }
+.journal-site .article-actions .article-share { border-color: var(--action); background: var(--action); color: #fff; font-weight: 600; }
+.journal-site .article-actions .article-share:hover { border-color: var(--action-hover); background: var(--action-hover); color: #fff; }
+.journal-site .action-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 24px;
+  background: var(--action); color: #fff !important; text-decoration: none;
+}
+.journal-site .action-button:hover { background: var(--action-hover); color: #fff; }
+.journal-site .issue-cover-links .action-button { margin-top: 6px; }
+.journal-site .action-link { color: var(--action); }
+.journal-site .action-link:hover { color: var(--action-hover); }
+.journal-site :is(.subscribe-submit, .article-share, .action-button):focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
